@@ -1,0 +1,56 @@
+;
+; Hap DirectShow Video Codec
+;
+; Copyright (c) 2013
+;
+;
+[version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+CopyFiles=HAP.Files.Inf,HAP.Files.Dll
+AddReg=HAP.Reg
+
+[DefaultUnInstall]
+DelFiles=HAP.Files.Dll,HAP.Files.Inf
+DelReg=HAP.Reg
+
+[SourceDisksNames]
+1="Hap DirectShow Video Codec","",1
+
+[SourceDisksFiles]
+HAPCODEC.INF=1
+HAPCODEC.DLL=1
+
+[DestinationDirs]
+HAP.Files.Inf=17
+HAP.Files.Dll=11
+
+[HAP.Files.Inf]
+HAPCODEC.INF
+
+[HAP.Files.Dll]
+HAPCODEC.DLL
+
+[HAP.Reg]
+HKLM,"SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.Hap1",Description,,"Hap video codec"
+HKLM,"SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.Hap1",Driver,,"hapcodec.dll"
+HKLM,"SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.Hap1",FriendlyName,,"Hap video codec"
+
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.Hap5,Description,,"Hap Alpha video codec"
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.Hap5,Driver,,"hapcodec.dll"
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.Hap5,FriendlyName,,"Hap Alpha video codec"
+
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.HapY,Description,,"Hap Q video codec"
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.HapY,Driver,,"hapcodec.dll"
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.HapY,FriendlyName,,"Hap Q video codec"
+
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\drivers.desc",hapcodec.dll,,"Hap video codec"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32","VIDC.Hap1",,"hapcodec.dll"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32",VIDC.Hap5,,"hapcodec.dll"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32",VIDC.HapY,,"hapcodec.dll"
+
+;Uninstalling is handled via the main installer.
+;HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\HAPCODEC
+;HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\HAPCODEC,DisplayName,,"Hap DirectShow Video Codec (Remove Only)"
+;HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\HAPCODEC,UninstallString,,"rundll.exe setupx.dll,InstallHinfSection DefaultUninstall 132 %17%\HAPCODEC.INF"
